@@ -12,12 +12,14 @@ import argparse
 
 def traverse_json(json_obj,padding=''):
     if (type(json_obj) is dict):
-        for k in json_obj:
-            print "%s%s %s" % (padding, k, type(json_obj[k]))
-            traverse_json(json_obj[k], padding+'----')
+        for key in json_obj:
+            # what type value for the key is
+            print "%s%s %s" % (padding, key, type(json_obj[key]))
+            traverse_json(json_obj[key], padding+'----')
     elif type(json_obj) is list:
         print "%slist of length %d" % (padding, len(json_obj))
         if len(json_obj) > 0:
+                # assuming all ojects in a list have same structure
                 print "%s%s" % (padding, type(json_obj[0]))
                 traverse_json(json_obj[0], padding+'----')
 
