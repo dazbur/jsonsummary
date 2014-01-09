@@ -17,6 +17,8 @@ def traverse_json(json_obj,explode_lists,explode_to_level,level=0):
         l = len(json_obj)
         print "%slist of length %d" % (PADDING * level, l)
         if l > 0:
+            # descend into lists only if we explode them and desired level
+            # is not yet reached
             scan_to = l-1 if explode_lists and level < explode_to_level else 1
             for i in  range(0, scan_to):
                 print "%s%s" % (PADDING * level, type(json_obj[i]))
