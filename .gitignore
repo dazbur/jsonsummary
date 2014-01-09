@@ -36,4 +36,4 @@ nosetests.xml
 .pydevproject
 
 # Test files
-.json
+*.json
